@@ -1,0 +1,48 @@
+:root {
+  --color-primary-dark: #386641;
+  --color-primary: #6a994e;
+  --color-primary-light: #a7c957;
+  --color-bg: #f2e8cf;
+  --color-accent: #bc4749;
+  --color-secondary: #73ba9b;
+  --color-border: #000000;
+  --color-white: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  font-family: 'Roboto Mono', monospace;
+  background-color: var(--color-bg);
+  color: var(--color-border);
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: unset;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
+
+#root {
+  min-height: 100vh;
+  padding: 20px;
+}
+
+h1, h2, h3, h4, h5, h6,
+button,
+.label {
+  font-family: 'Press Start 2P', cursive;
+  font-weight: normal;
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: unset;
+}
+
+input, textarea {
+  font-family: 'Roboto Mono', monospace;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

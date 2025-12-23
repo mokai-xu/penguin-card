@@ -1,0 +1,380 @@
+.app {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.headerBox {
+  background: var(--color-white);
+  border: 3px solid var(--color-border);
+  padding: 20px 40px;
+  box-shadow: 8px 8px 0px 0px var(--color-border);
+  display: inline-block;
+}
+
+.header h1 {
+  font-size: 24px;
+  color: var(--color-border);
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 12px;
+  color: var(--color-border);
+  margin: 0;
+  opacity: 0.8;
+}
+
+.mainContent {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.canvasContainer {
+  background: var(--color-white);
+  border: 3px solid var(--color-border);
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 500px;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.section {
+  background: var(--color-white);
+  border: 3px solid var(--color-border);
+  padding: 20px;
+}
+
+.sectionTitle {
+  font-size: 12px;
+  color: var(--color-border);
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+.templateGrid {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.templatePreview {
+  width: 80px;
+  height: 60px;
+  border: 3px solid;
+  position: relative;
+  cursor: pointer;
+  background: var(--color-white);
+  transition: transform 0.1s;
+}
+
+.templatePreview:hover {
+  transform: scale(1.05);
+}
+
+.templatePreview.selected {
+  border-width: 4px;
+}
+
+.templateInner {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  right: 8px;
+  bottom: 8px;
+  border: 1px solid;
+}
+
+.templateDots {
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.templateDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.navButton {
+  width: 40px;
+  height: 40px;
+  background: var(--color-border);
+  color: var(--color-white);
+  border: none;
+  cursor: pointer;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s;
+}
+
+.navButton:hover {
+  opacity: 0.8;
+}
+
+.navButton:active {
+  opacity: 0.6;
+}
+
+.stickerCarousel {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.stickerGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 10px;
+  flex: 1;
+}
+
+.stickerButton {
+  width: 60px;
+  height: 60px;
+  border: 1px solid var(--color-border);
+  background: var(--color-white);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  transition: transform 0.1s, background 0.1s;
+  padding: 4px;
+  overflow: hidden;
+}
+
+.stickerButton img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
+
+.stickerButton:hover {
+  transform: scale(1.1);
+  background: var(--color-bg);
+}
+
+.stickerButton:active {
+  transform: scale(0.95);
+}
+
+.textInputGroup {
+  margin-bottom: 15px;
+}
+
+.textLabel {
+  font-size: 10px;
+  color: var(--color-border);
+  margin-bottom: 8px;
+  display: block;
+}
+
+.textInput {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid var(--color-border);
+  background: var(--color-white);
+  font-family: 'Roboto Mono', monospace;
+  font-size: 12px;
+  color: var(--color-border);
+}
+
+.textInput::placeholder {
+  color: #999;
+}
+
+.messageControls {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.controlLabel {
+  font-size: 8px;
+  font-family: 'Press Start 2P', cursive;
+  color: var(--color-border);
+  margin-right: 5px;
+}
+
+.alignButtons,
+.styleButtons {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.alignButton,
+.styleButton {
+  width: 30px;
+  height: 30px;
+  border: 2px solid var(--color-border);
+  background: var(--color-white);
+  font-family: 'Press Start 2P', cursive;
+  font-size: 10px;
+  color: var(--color-border);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.1s, transform 0.1s;
+}
+
+.alignButton:hover,
+.styleButton:hover {
+  background: var(--color-bg);
+  transform: scale(1.05);
+}
+
+.alignButton:active,
+.styleButton:active {
+  transform: scale(0.95);
+}
+
+.alignButton.active,
+.styleButton.active {
+  background: var(--color-primary-light);
+  color: var(--color-white);
+}
+
+.styleButton strong,
+.styleButton em {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 10px;
+}
+
+.sizeButtons {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.sizeButton {
+  width: 30px;
+  height: 30px;
+  border: 2px solid var(--color-border);
+  background: var(--color-white);
+  font-family: 'Press Start 2P', cursive;
+  font-size: 14px;
+  color: var(--color-border);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.1s, transform 0.1s;
+}
+
+.sizeButton:hover {
+  background: var(--color-bg);
+  transform: scale(1.05);
+}
+
+.sizeButton:active {
+  transform: scale(0.95);
+}
+
+.sizeDisplay {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 10px;
+  color: var(--color-border);
+  min-width: 35px;
+  text-align: center;
+}
+
+.generateButton {
+  width: 100%;
+  padding: 15px;
+  background: var(--color-white);
+  border: 3px solid var(--color-border);
+  font-family: 'Press Start 2P', cursive;
+  font-size: 8px;
+  color: var(--color-border);
+  cursor: pointer;
+  text-align: center;
+  margin-top: 10px;
+  transition: background 0.1s;
+}
+
+.generateButton:hover {
+  background: var(--color-bg);
+}
+
+.generateButton:active {
+  background: var(--color-primary-light);
+}
+
+.saveButton {
+  width: 100%;
+  padding: 15px;
+  background: var(--color-white);
+  border: 3px solid var(--color-border);
+  font-family: 'Press Start 2P', cursive;
+  font-size: 10px;
+  color: var(--color-border);
+  cursor: pointer;
+  text-align: center;
+  transition: background 0.1s;
+}
+
+.saveButton:hover {
+  background: var(--color-bg);
+}
+
+.saveButton:active {
+  background: var(--color-primary-light);
+}
+
+@media (max-width: 968px) {
+  .mainContent {
+    grid-template-columns: 1fr;
+  }
+
+  .canvasContainer {
+    min-height: 400px;
+  }
+
+  .header h1 {
+    font-size: 18px;
+  }
+
+  .sectionTitle {
+    font-size: 10px;
+  }
+
+  .templateGrid,
+  .stickerGrid {
+    flex-wrap: wrap;
+  }
+}
