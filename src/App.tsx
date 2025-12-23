@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { CardCanvas } from './components/CardCanvas';
 import { TemplateSelector } from './components/TemplateSelector';
 import { StickerPalette } from './components/StickerPalette';
