@@ -129,17 +129,18 @@
 .sectionTitle {
   font-size: 12px;
   color: var(--color-border);
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   text-transform: uppercase;
 }
 
 .templateGrid {
   display: flex;
-  gap: 15px;
+  gap: 10px;
   align-items: center;
   margin-bottom: 10px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: center;
+  height: auto;
 }
 
 @media (max-width: 768px) {
@@ -155,27 +156,28 @@
 }
 
 .templatePreview {
-  width: 80px;
-  height: 60px;
+  width: 70px;
+  height: 45px;
   border: 3px solid;
   position: relative;
   cursor: pointer;
   background: var(--color-white);
   transition: transform 0.1s;
   touch-action: manipulation;
+  flex-shrink: 0;
 }
 
 @media (max-width: 768px) {
   .templatePreview {
-    width: 70px;
-    height: 52px;
+    width: 60px;
+    height: 38px;
   }
 }
 
 @media (max-width: 480px) {
   .templatePreview {
-    width: 60px;
-    height: 45px;
+    width: 50px;
+    height: 32px;
   }
 }
 
@@ -189,11 +191,29 @@
 
 .templateInner {
   position: absolute;
-  top: 8px;
-  left: 8px;
-  right: 8px;
-  bottom: 8px;
+  top: 6px;
+  left: 6px;
+  right: 6px;
+  bottom: 6px;
   border: 1px solid;
+}
+
+@media (max-width: 768px) {
+  .templateInner {
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .templateInner {
+    top: 4px;
+    left: 4px;
+    right: 4px;
+    bottom: 4px;
+  }
 }
 
 .templateDots {
