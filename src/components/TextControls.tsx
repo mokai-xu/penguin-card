@@ -86,7 +86,7 @@ export const TextControls: React.FC<TextControlsProps> = ({
           placeholder="Your holiday message"
           value={message}
           onChange={(e) => onMessageChange(e.target.value)}
-          rows={4}
+          rows={3}
         />
         
         <div className={styles.messageControls}>

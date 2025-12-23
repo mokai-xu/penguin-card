@@ -156,7 +156,8 @@ function App() {
       <header className={styles.header}>
         <div className={styles.headerBox}>
           <h1>Holiday Card Generator</h1>
-          <p className={styles.subtitle}>Make a card using my favourite assets</p>
+          <p className={styles.subtitle}>Make a card using my favourite assets! Or check out  <a href="https://penguin-vibe.onrender.com" target="_blank" rel="noopener noreferrer"> Penguin Vibe</a></p>
+       
         </div>
       </header>
 

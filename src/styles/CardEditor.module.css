@@ -392,6 +392,11 @@
   appearance: none;
 }
 
+textarea.textInput {
+  resize: vertical;
+  line-height: 1.4;
+}
+
 @media (max-width: 768px) {
   .textInput {
     padding: 12px;
