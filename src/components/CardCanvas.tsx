@@ -34,11 +34,12 @@ export const CardCanvas: React.FC<CardCanvasProps> = ({
     const updateSize = () => {
       if (canvasRef.current) {
         const container = canvasRef.current;
-        const maxWidth = Math.min(800, container.offsetWidth - 40);
+        const padding = window.innerWidth <= 768 ? 20 : window.innerWidth <= 480 ? 16 : 40;
+        const maxWidth = Math.min(800, container.offsetWidth - padding);
         const aspectRatio = 4 / 3;
         setCanvasSize({
-          width: maxWidth,
-          height: maxWidth / aspectRatio,
+          width: Math.max(280, maxWidth), // Minimum width for mobile
+          height: Math.max(210, maxWidth / aspectRatio), // Minimum height for mobile
         });
       }
     };
@@ -164,7 +165,12 @@ export const CardCanvas: React.FC<CardCanvasProps> = ({
       ref={stageRef}
       width={canvasSize.width}
       height={canvasSize.height}
-      style={{ border: '1px solid #ddd' }}
+      style={{ 
+        border: '1px solid #ddd',
+        touchAction: 'none',
+        maxWidth: '100%',
+        height: 'auto',
+      }}
       onClick={handleStageClick}
       onTap={handleStageClick}
     >

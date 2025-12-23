@@ -25,11 +25,25 @@ body {
   image-rendering: pixelated;
   image-rendering: -moz-crisp-edges;
   image-rendering: crisp-edges;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
 }
 
 #root {
   min-height: 100vh;
   padding: 20px;
+}
+
+@media (max-width: 768px) {
+  #root {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  #root {
+    padding: 8px;
+  }
 }
 
 h1, h2, h3, h4, h5, h6,
@@ -45,4 +59,10 @@ input, textarea {
   font-family: 'Roboto Mono', monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+@media (max-width: 768px) {
+  input, textarea {
+    font-size: 16px !important; /* Prevents iOS zoom on focus */
+  }
 }

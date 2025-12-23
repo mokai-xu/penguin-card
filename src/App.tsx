@@ -7,7 +7,7 @@ import { SaveButton } from './components/SaveButton';
 import { Sticker, TextElement, TextAlign, FontStyle } from './types/card';
 import { stickers } from './data/stickers';
 import { createUniqueId } from './utils/canvasHelpers';
-import { exportCanvasToImage } from './utils/canvasExport';
+import { exportCanvasToImage, shareCard } from './utils/canvasExport';
 import styles from './styles/CardEditor.module.css';
 
 function App() {
@@ -126,6 +126,12 @@ function App() {
     }
   };
 
+  const handleShare = async () => {
+    if (stageRef.current) {
+      await shareCard(stageRef.current, 'https://penguin-card.onrender.com');
+    }
+  };
+
   // Handle keyboard delete
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -192,7 +198,7 @@ function App() {
             onMessageFontSizeChange={setMessageFontSize}
           />
 
-          <SaveButton onSave={handleSave} />
+          <SaveButton onSave={handleSave} onShare={handleShare} />
         </div>
       </div>
     </div>
