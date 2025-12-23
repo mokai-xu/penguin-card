@@ -43,12 +43,22 @@ function App() {
 
     if (fromText.trim()) {
       const existing = textElements.find((el) => el.type === 'from');
+      // Find "To:" element from either new elements or existing
+      const toElement = newTextElements.find((el) => el.type === 'to') || 
+                        textElements.find((el) => el.type === 'to');
+      // Position "From:" below "To:" text if it exists, otherwise at default position
+      let defaultY = 150;
+      if (toElement && toElement.y) {
+        defaultY = toElement.y + 50;
+      } else if (existing && existing.y) {
+        defaultY = existing.y; // Keep existing position
+      }
       newTextElements.push({
         id: existing?.id || createUniqueId(),
         type: 'from',
         text: `From: ${fromText}`,
         x: existing?.x || 50,
-        y: existing?.y || 400,
+        y: existing?.y || defaultY,
         width: existing?.width || 200,
         height: existing?.height || 30,
       });
@@ -56,14 +66,23 @@ function App() {
 
     if (messageText.trim()) {
       const existing = textElements.find((el) => el.type === 'message');
+      // Default canvas size is 800x600, so half is 400x300
+      const defaultCanvasWidth = 800;
+      const defaultCanvasHeight = 600;
+      // Use minimum of canvas width / 2 or screen width / 2
+      const defaultMessageWidth = Math.min(defaultCanvasWidth / 2, window.innerWidth / 2);
+      const defaultMessageHeight = defaultCanvasHeight / 2;
+      // Center the message text box on the canvas
+      const defaultMessageX = (defaultCanvasWidth - defaultMessageWidth) / 2;
+      const defaultMessageY = (defaultCanvasHeight - defaultMessageHeight) / 2;
       newTextElements.push({
         id: existing?.id || createUniqueId(),
         type: 'message',
         text: messageText,
-        x: existing?.x || 50,
-        y: existing?.y || 200,
-        width: existing?.width || 500,
-        height: existing?.height || 100,
+        x: existing?.x || defaultMessageX,
+        y: existing?.y || defaultMessageY,
+        width: existing?.width || defaultMessageWidth,
+        height: existing?.height || defaultMessageHeight,
         align: messageAlign,
         fontStyle: messageFontStyle,
         fontSize: messageFontSize,
@@ -120,7 +139,7 @@ function App() {
     );
   };
 
-  const handleSave = () => {
+  const handleDownload = () => {
     if (stageRef.current) {
       exportCanvasToImage(stageRef.current);
     }
@@ -128,7 +147,7 @@ function App() {
 
   const handleShare = async () => {
     if (stageRef.current) {
-      await shareCard(stageRef.current, 'https://penguin-card.onrender.com');
+      await shareCard(stageRef.current, 'http://penguin-card.onrender.com');
     }
   };
 
@@ -199,7 +218,7 @@ function App() {
             onMessageFontSizeChange={setMessageFontSize}
           />
 
-          <SaveButton onSave={handleSave} onShare={handleShare} />
+          <SaveButton onDownload={handleDownload} onShare={handleShare} />
         </div>
       </div>
     </div>

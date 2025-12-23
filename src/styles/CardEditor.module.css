@@ -613,7 +613,7 @@ textarea.textInput {
   }
 }
 
-.saveButton,
+.downloadButton,
 .shareButton {
   flex: 1;
   padding: 15px;
@@ -628,18 +628,18 @@ textarea.textInput {
   touch-action: manipulation;
 }
 
-.shareButton:hover,
-.saveButton:hover {
+.downloadButton:hover,
+.shareButton:hover {
   background: var(--color-bg);
 }
 
-.shareButton:active,
-.saveButton:active {
+.downloadButton:active,
+.shareButton:active {
   background: var(--color-primary-light);
 }
 
 @media (max-width: 768px) {
-  .saveButton,
+  .downloadButton,
   .shareButton {
     padding: 18px;
     font-size: 9px;
@@ -647,7 +647,7 @@ textarea.textInput {
 }
 
 @media (max-width: 480px) {
-  .saveButton,
+  .downloadButton,
   .shareButton {
     padding: 20px 15px;
     font-size: 8px;

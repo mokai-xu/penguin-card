@@ -29,6 +29,7 @@ export function exportCanvasToImage(
       stage.batchDraw();
     }
 
+    // Download the image directly
     const link = document.createElement('a');
     link.href = dataURL;
     link.download = `${filename}-${Date.now()}.png`;
@@ -42,7 +43,7 @@ export function exportCanvasToImage(
 
 export async function shareCard(
   stage: Konva.Stage | null,
-  shareUrl: string = 'https://penguin-card.onrender.com'
+  shareUrl: string = 'http://penguin-card.onrender.com'
 ): Promise<void> {
   if (!stage) {
     console.error('Stage not found');
@@ -80,8 +81,7 @@ export async function shareCard(
         await navigator.share({
           files: [file],
           title: 'Holiday Card',
-          text: 'Check out my holiday card! Create your own at',
-          url: shareUrl,
+          text: `Check out my holiday card! Create your own at ${shareUrl}`,
         });
         return;
       } catch (shareError: any) {
@@ -94,25 +94,32 @@ export async function shareCard(
       }
     }
 
-    // Fallback: Try text-only share
+    // Fallback: Try text-only share with link
     if (navigator.share) {
       try {
         await navigator.share({
           title: 'Holiday Card',
-          text: 'Check out my holiday card! Create your own at',
-          url: shareUrl,
+          text: `Check out my holiday card! Create your own at ${shareUrl}`,
         });
       } catch (shareError: any) {
         if (shareError.name !== 'AbortError') {
           // If share fails, copy link to clipboard
-          await navigator.clipboard.writeText(shareUrl);
-          alert(`Link copied to clipboard: ${shareUrl}`);
+          try {
+            await navigator.clipboard.writeText(shareUrl);
+            alert(`Link copied to clipboard: ${shareUrl}`);
+          } catch (clipboardError) {
+            alert(`Please copy this link: ${shareUrl}`);
+          }
         }
       }
     } else {
       // Fallback: Copy link to clipboard
-      await navigator.clipboard.writeText(shareUrl);
-      alert(`Link copied to clipboard: ${shareUrl}`);
+      try {
+        await navigator.clipboard.writeText(shareUrl);
+        alert(`Link copied to clipboard: ${shareUrl}`);
+      } catch (clipboardError) {
+        alert(`Please copy this link: ${shareUrl}`);
+      }
     }
   } catch (error) {
     console.error('Error sharing card:', error);
