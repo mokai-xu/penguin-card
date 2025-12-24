@@ -540,7 +540,7 @@ export const CardCanvas: React.FC<CardCanvasProps> = ({
               fontSize={getFontSize()}
               fontFamily="Roboto Mono"
               fontStyle={getFontStyle(textEl.fontStyle, textEl.type)}
-              fill="#386641"
+              fill="#212126"
               draggable
               width={textEl.width}
               align={getAlign(textEl.align)}
