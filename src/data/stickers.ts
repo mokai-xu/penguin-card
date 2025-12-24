@@ -8,8 +8,6 @@ export interface StickerDefinition {
 
 import penguinImage from './assets/penguin-single.png';
 import penguinScarfImage from './assets/penguin-scarf.png';
-import heartImage from './assets/heart.png';
-import heart2Image from './assets/heart2.png';
 import heartRedImage from './assets/heart-red.png';
 import heartGreenImage from './assets/heart-green.png';
 import mistletoeImage from './assets/mistletoe.png';
